@@ -2,8 +2,6 @@
 /*********************
 docs.paxagency.com/php
 *********************/
-if($_URL_STRING=="robots.txt") return require_once($_CWD."robots.txt");
-if($_URL_STRING=="sitemap.xml") return require_once($_CWD."sitemap.xml");
 if($_URL[0]=='public') {
 	$ext = pathinfo($_URL_STRING, PATHINFO_EXTENSION);
 	if($ext=="css") header('Content-type: text/css');
@@ -16,4 +14,7 @@ if($_URL[0]=='public') {
 	readfile($_CWD.$_URL_STRING);
 	die();
 }
+if($_URL_STRING=="robots.txt") {header("Content-Type: text/plain"); readfile($_CWD."robots.txt"); die();}
+if($_URL_STRING=="sitemap.xml") {header('Content-type: application/xml'); readfile($_CWD."sitemap.xml"); die();}
+
 ?>
