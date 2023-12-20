@@ -13,6 +13,6 @@ if($_URL[0]=='public') {
 	if($ext=="gif") header('Content-type: image/gif');
 	if($ext=="ico") header('Content-type: image/ico');
 	if($ext=="svg") header('Content-type: image/svg+xml');
-	return require_once($_CWD.$_URL_STRING);
+	return file_get_contents($_CWD.$_URL_STRING);
 }
 ?>
