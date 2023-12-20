@@ -13,9 +13,9 @@ if(SITE_WWW && strpos($_SERVER['HTTP_HOST'],"www.")===false)
 $_URL=array_slice(explode('/',parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH)),SITE_URL_INDEX);
 if($_URL[0]=='public') {
 	$url =  implode("/",$_URL);
-	$ext = pathinfo($url, PATHINFO_EXTENSION);
+	//$ext = pathinfo($url, PATHINFO_EXTENSION);
 	//if($ext=="css") header('Content-type: text/css');
-	echo $ext;
+	//echo $ext;
 	return require_once($_CWD."public/".$_URL[1]);
 }
 header('Content-type: text/css');
