@@ -1,1 +1,2 @@
-var app={};;
+var app={};
+alert("Test");
