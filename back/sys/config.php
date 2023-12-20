@@ -13,6 +13,7 @@ define('SITE_BUILD',0);  //BUILD CSS & JS
 define('SITE_TEMP',0);   //WRAP VIEWS IN TEMPLATE TAGS FOR JS FRAMEWORK
 // DIRECTORIES
 define('DIR_BACK',getcwd().'/back/');
+define('DIR_API',getcwd().'/api/');
 define('DIR_APP',getcwd().'/back/app/');
 define('DIR_SYS',getcwd().'/back/sys/');
 define('DIR_DB',getcwd().'/back/db/');

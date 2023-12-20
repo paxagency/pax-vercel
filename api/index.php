@@ -8,5 +8,5 @@ define('APP_VERSION', '0.0.1');
 define('APP_LICENSE', 'MIT');
 define('APP_AUTHOR', 'John Smith');
 
-require_once('../back/sys/init.php'); 
+require_once(DIR_API.'back/sys/init.php'); 
 ?>
