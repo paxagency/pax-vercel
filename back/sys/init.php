@@ -11,6 +11,7 @@ if(SITE_WWW && strpos($_SERVER['HTTP_HOST'],"www.")===false)
     header('Location: '.$_SERVER['REQUEST_SCHEME'].'://www.'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 
 $_URL=array_slice(explode('/',parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH)),SITE_URL_INDEX);
+if($_URL[0]=='public') return require_once($_CWD.$_URL[0]);
 $_PATH='error.html';
 $_PAGE = 'error';
 $path='';
