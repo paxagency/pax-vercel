@@ -15,6 +15,7 @@ if($_URL[0]=='public') {
 	$url =  implode("/",$_URL);
 	$ext = pathinfo($url, PATHINFO_EXTENSION);
 	if($ext=="css") header('Content-type: text/css');
+	if($ext=="js") header('Content-type: text/javascript');
 	return require_once($_CWD."public/".$_URL[1]);
 }
 
