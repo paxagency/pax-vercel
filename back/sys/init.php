@@ -14,7 +14,7 @@ $_URL=array_slice(explode('/',parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH)),S
 if($_URL[0]=='public') {
 	$url =  implode("/",$_URL);
 	//$ext = pathinfo($url, PATHINFO_EXTENSION);
-	//if($ext=="css") header('Content-type: text/css');
+	
 	//echo $ext;
 	return require_once($_CWD."public/".$_URL[1]);
 }
