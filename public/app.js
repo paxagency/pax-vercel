@@ -1,2 +1,2 @@
 var app={};
-alert("Test");
+console.log("Test");
