@@ -11,13 +11,9 @@ if(SITE_WWW && strpos($_SERVER['HTTP_HOST'],"www.")===false)
     header('Location: '.$_SERVER['REQUEST_SCHEME'].'://www.'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 
 $_URL=array_slice(explode('/',parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH)),SITE_URL_INDEX);
-if($_URL[0]=='public') {
-	$url =  implode("/",$_URL);
-	$ext = pathinfo($url, PATHINFO_EXTENSION);
-	if($ext=="css") header('Content-type: text/css');
-	if($ext=="js") header('Content-type: text/javascript');
-	return require_once($_CWD."public/".$_URL[1]);
-}
+$_URL_STRING =  implode("/",$_URL);
+
+require_once(DIR_SYS.'public.php');
 
 $_PATH='error.html';
 $_PAGE = 'error';
