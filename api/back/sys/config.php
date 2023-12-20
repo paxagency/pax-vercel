@@ -1,6 +1,7 @@
 <?php
 $_SSL = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 1 : 0;
 $_PROTOCOL =  ($_SSL) ? "https://" : "http://";
+$_CWD = "/var/task/user/";
 // SITE
 define('SITE_PUBLIC', $_PROTOCOL.$_SERVER['HTTP_HOST'].'/');
 define('SITE_SSL', $_SSL);
@@ -12,16 +13,15 @@ define('SITE_WWW', 0);
 define('SITE_BUILD',0);  //BUILD CSS & JS
 define('SITE_TEMP',0);   //WRAP VIEWS IN TEMPLATE TAGS FOR JS FRAMEWORK
 // DIRECTORIES
-define('DIR_BACK',getcwd().'/back/');
-define('DIR_API',getcwd().'/api/');
-define('DIR_APP',getcwd().'/back/app/');
-define('DIR_SYS',getcwd().'/back/sys/');
-define('DIR_DB',getcwd().'/back/db/');
-define('DIR_FRONT',getcwd().'/front/');
-define('DIR_PAGE',getcwd().'/front/html/pages/');
-define('DIR_TEMP',getcwd().'/front/html/templates/');
+define('DIR_BACK',$_CWD.'/back/');
+define('DIR_APP',$_CWD.'/back/app/');
+define('DIR_SYS',$_CWD.'/back/sys/');
+define('DIR_DB',$_CWD.'/back/db/');
+define('DIR_FRONT',$_CWD.'/front/');
+define('DIR_PAGE',$_CWD.'/front/html/pages/');
+define('DIR_TEMP',$_CWD.'/front/html/templates/');
 // FILES
-define('FILE_APP',getcwd().'/back/sys/app.php');
+define('FILE_APP',$_CWD.'/back/sys/app.php');
 // DATABASE
 define('DB_CLASS', "seed");
 define('DB_SERVER', "localhost");
