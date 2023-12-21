@@ -13,7 +13,7 @@ if($_URL[0]=='public' || $_URL_STRING=="robots.txt" || $_URL_STRING=="sitemap.xm
 	if($ext=="svg") header('Content-type: image/svg+xml');
 	if($ext=="xml") header('Content-type: application/xml');
 	if($ext=="txt") header('Content-type: text/plain');
-	if(file_exists($_CWD.$_URL_STRING)) {
+	if(file_exists($_CWD.$_URL_STRING) && !is_dir($_CWD.$_URL_STRING)) {
 		readfile($_CWD.$_URL_STRING);
 		die();
 	}
