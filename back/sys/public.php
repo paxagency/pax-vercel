@@ -2,7 +2,7 @@
 /*********************
 docs.paxagency.com/php
 *********************/
-if($_URL[0]=='public') {
+if($_URL[0]=='public' || $_URL_STRING=="robots.txt" || $_URL_STRING=="sitemap.xml") {
 	$ext = pathinfo($_URL_STRING, PATHINFO_EXTENSION);
 	if($ext=="css") header('Content-type: text/css');
 	if($ext=="js") header('Content-type: text/javascript');
@@ -11,10 +11,12 @@ if($_URL[0]=='public') {
 	if($ext=="gif") header('Content-type: image/gif');
 	if($ext=="ico") header('Content-type: image/ico');
 	if($ext=="svg") header('Content-type: image/svg+xml');
-	readfile($_CWD.$_URL_STRING);
-	die();
+	if($ext=="xml") header('Content-type: application/xml');
+	if($ext=="txt") header('Content-type: text/plain');
+	if(file_exists($_CWD.$_URL_STRING)) {
+		readfile($_CWD.$_URL_STRING);
+		die();
+	}
 }
-if($_URL_STRING=="robots.txt") {header("Content-Type: text/plain"); readfile($_CWD."robots.txt"); die();}
-if($_URL_STRING=="sitemap.xml") {header('Content-type: application/xml'); readfile($_CWD."sitemap.xml"); die();}
 
 ?>
