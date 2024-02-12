@@ -1,2 +1,1 @@
-var app={};
-console.log("Ready");
+var app={};;

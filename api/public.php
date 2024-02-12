@@ -2,6 +2,8 @@
 /*********************
 docs.paxagency.com/php
 *********************/
+$_URL=array_slice(explode('/',parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH)),1);
+$_URL_STRING =  implode("/",$_URL);
 if($_URL[0]=='public' || $_URL_STRING=="robots.txt" || $_URL_STRING=="sitemap.xml") {
 	$ext = pathinfo($_URL_STRING, PATHINFO_EXTENSION);
 	if($ext=="css") header('Content-type: text/css');
@@ -21,8 +23,9 @@ if($_URL[0]=='public' || $_URL_STRING=="robots.txt" || $_URL_STRING=="sitemap.xm
 	if($ext=="mp4") header('Content-type: video/mp4');
 	if($ext=="mpeg") header('Content-type: video/mpeg');
 	if($ext=="mp3") header('Content-type: audio/mpeg');
-	if(file_exists($_CWD.$_URL_STRING) && !is_dir($_CWD.$_URL_STRING)) {
-		readfile($_CWD.$_URL_STRING);
+	
+	if(file_exists($_DIR.$_URL_STRING) && !is_dir($_DIR.$_URL_STRING)) {
+		readfile($_DIR.$_URL_STRING);
 		die();
 	}
 }
